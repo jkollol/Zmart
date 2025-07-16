@@ -22,18 +22,26 @@
     </header>
 
     <!-- Hero -->
-    <section class="pt-28 pb-20 bg-blue-50">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
-            <div class="text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-4">
-                    Everything You Need<br>Delivered Fast.
-                </h2>
-                <p class="text-lg text-gray-600 mb-6">Find the best products at unbeatable prices. Your one-stop online shop.</p>
-                <a href="/products" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">Shop Now</a>
-            </div>
-            <img src="https://source.unsplash.com/600x400/?ecommerce,store" alt="Shopping" class="rounded-lg shadow-lg w-full md:w-1/2">
-        </div>
-    </section>
+    <section class="pt-24 pb-16 bg-blue-50 text-center">
+        <div class="mt-10">
+      <img src="{{ asset('images/zmart.png') }}" alt="MyShop Logo" class="mx-auto w-48 max-w-full object-contain rounded-lg" />
+    </div>
+  <div class="max-w-3xl mx-auto px-4">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6">
+      Everything You Need<br>Delivered Fast.
+    </h1>
+    <p class="text-lg text-gray-700 mb-8">
+      Find the best products at unbeatable prices. Your one-stop online shop.
+    </p>
+    <a href="/products" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
+      Shop Now
+    </a>
+
+  </div>
+</section>
+
+
+
 
     <!-- Features -->
     <section id="features" class="py-16 bg-white">
