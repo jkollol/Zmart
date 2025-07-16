@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero hbb -->
     <section class="pt-28 pb-20 bg-blue-50">
         <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
             <div class="text-center md:text-left">
