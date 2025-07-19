@@ -12,17 +12,17 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-green-600">ZMART</h1>
             <nav class="space-x-4">
-                <a href="#features" class="text-gray-700 hover:text-blue-600">Features</a>
-                <a href="#products" class="text-gray-700 hover:text-blue-600">Products</a>
-                <a href="#testimonials" class="text-gray-700 hover:text-blue-600">Reviews</a>
-                <a href="#cta" class="text-gray-700 hover:text-blue-600">Join</a>
-                <a href="/login" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</a>
+                <a href="#features" class="text-gray-700 hover:text-green-600">Features</a>
+                <a href="#products" class="text-gray-700 hover:text-green-600">Products</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-green-600">Reviews</a>
+                <a href="#cta" class="text-gray-700 hover:text-green-600">Join</a>
+                <a href="/login" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="pt-24 pb-16 bg-blue-50 text-center">
+    <section class="pt-24 pb-16 bg-green-50 text-center">
         <div class="mt-10">
       <img src="{{ asset('images/zmart.png') }}" alt="MyShop Logo" class="mx-auto w-48 max-w-full object-contain rounded-lg" />
     </div>
@@ -33,7 +33,7 @@
     <p class="text-lg text-gray-700 mb-8">
       Find the best products at unbeatable prices. Your one-stop online shop.
     </p>
-    <a href="/products" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
+    <a href="/products" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
       Shop Now
     </a>
 
@@ -79,8 +79,8 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Calming Serum : Green tea + Panthenol</h4>
                     <p class="text-sm text-gray-600 mt-1">A cooling, calming serum to instantly soothe stressed or reactive skin. Made with a high concentration of mugwort extract and green tea to reduce the look of redness..</p>
-                    <p class="mt-2 text-blue-600 font-bold">$12.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$12.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -91,8 +91,8 @@
                     <h4 class="text-lg font-semibold">Glow Serum : Propolis + Niacinamide</h4>
                     <p class="text-sm text-gray-600 mt-1">A cushiony smoothing serum with niacinamide and propolis extract that helps refine pores, hydrate, and calm reactive skin for a glassy glow.</p>
                     <br>
-                    <p class="mt-2 text-blue-600 font-bold">$15.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$15.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -104,8 +104,8 @@
                     <p class="text-sm text-gray-600 mt-1">Our best-selling creamy moisturizer that sinks in for long-lasting hydration and leaves skin looking dewy, plump, and bouncy.</p>
                     <br>
                     <br>
-                    <p class="mt-2 text-blue-600 font-bold">$18.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$18.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -115,8 +115,8 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Green Plum Refreshing Toner : AHA + BHA</h4>
                     <p class="text-sm text-gray-600 mt-1">A gentle yet effective smoothing toner that helps reset your skin’s natural glow by sweeping away dead skin cells and cleansing clogged pores. Formulated with mung bean extract, AHA, and BHA.</p>
-                    <p class="mt-2 text-blue-600 font-bold">$22.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$22.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -126,9 +126,9 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Daily Tinted Fluid Sunscreen</h4>
                     <p class="text-sm text-gray-600 mt-1">A barrier-boosting essence packed with ginseng water and niacinamide for lasting hydration, antioxidant benefits, and a glow boost..</p>
-                    <p class="mt-2 text-blue-600 font-bold">$14.00</p>
+                    <p class="mt-2 text-green-600 font-bold">$14.00</p>
                     <br>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -138,8 +138,8 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Revive Eye Serum : Ginseng + Retinal</h4>
                     <p class="text-sm text-gray-600 mt-1">A powerful Korean eye cream with a fast-absorbing serum texture that helps target the look of wrinkles, brighten, and hydrate for firmer-looking refreshed under eyes.</p>
-                    <p class="mt-2 text-blue-600 font-bold">$25.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$25.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -149,8 +149,8 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Ground Rice and Honey Glow Mask</h4>
                     <p class="text-sm text-gray-600 mt-1">A wash-off mask made with Korean rice extracts and honey to help brighten, soothe, hydrate, and gently exfoliate skin in one step.</p>
-                    <p class="mt-2 text-blue-600 font-bold">$19.00</p>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <p class="mt-2 text-green-600 font-bold">$19.00</p>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -160,9 +160,9 @@
                 <div class="p-4">
                     <h4 class="text-lg font-semibold">Deep Double Cleansing Duo</h4>
                     <p class="text-sm text-gray-600 mt-1">Your dream team for a revitalizing daily double cleanse. Includes our Ginseng Cleansing Oil and Green Plum Refreshing Cleanser. </p>
-                    <p class="mt-2 text-blue-600 font-bold">$27.00</p>
+                    <p class="mt-2 text-green-600 font-bold">$27.00</p>
                     <br>
-                    <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                 </div>
             </div>
 
@@ -178,25 +178,25 @@
             <div class="grid md:grid-cols-3 gap-6 text-left">
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“Fast delivery and excellent customer service. I'll shop again!”</p>
-                    <p class="mt-4 font-semibold text-blue-600"> Ayesha K.</p>
+                    <p class="mt-4 font-semibold text-green-600"> Ayesha K.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“The best prices online and product quality is top notch!”</p>
-                    <p class="mt-4 font-semibold text-blue-600"> Rahim U.</p>
+                    <p class="mt-4 font-semibold text-green-600"> Rahim U.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“Got my order in 2 days. I was surprised at how smooth it was.”</p>
-                    <p class="mt-4 font-semibold text-blue-600"> Tanvir A.</p>
+                    <p class="mt-4 font-semibold text-green-600"> Tanvir A.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section id="cta" class="py-20 bg-blue-600 text-white text-center">
+    <section id="cta" class="py-20 bg-green-600 text-white text-center">
         <h3 class="text-3xl font-bold mb-4">Ready to Shop?</h3>
         <p class="mb-6 text-lg">Create an account and start exploring amazing deals today.</p>
-        <a href="/register" class="bg-white text-blue-600 font-bold px-6 py-3 rounded hover:bg-gray-100">Join Now</a>
+        <a href="/register" class="bg-white text-green-600 font-bold px-6 py-3 rounded hover:bg-gray-100">Join Now</a>
     </section>
 
     <!-- Footer -->
