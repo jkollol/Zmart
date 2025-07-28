@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MyShop - Home</title>
+    <title>MyShop - Dashboard</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-white text-gray-800 font-sans">
