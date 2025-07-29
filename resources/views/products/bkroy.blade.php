@@ -1,20 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bg-green-100">
-    <h1 class="text-center font-extrabold text-3xl pt-10 text-green-800">Add New Product</h1>
+<div class="container bg-green-100 mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-4">Add New Product</h1>
 
     @if ($errors->any())
-        <div style="color:red;">
+        <div class="bg-red-100 text-red-700 p-3 mb-4 rounded">
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li>- {{ $error }}</li>
                 @endforeach
             </ul>
         </div>
     @endif
 
-    <form action="{{ route('products.store') }}" method="POST" class="max-w-3xl mx-auto space-y-4">
+    @if (session('success'))
+        <div class="bg-green-100 text-green-700 p-3 mb-4 rounded">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <form action="{{ route('products.store') }}" method="POST" class="space-y-4">
         @csrf
         <div>
             <label class="block text-sm font-medium">Product Name</label>
@@ -37,16 +43,13 @@
         </div>
 
         <div>
-            <label class=" block text-sm font-medium">Stock</label>
+            <label class="block text-sm font-medium">Stock</label>
             <input type="number" name="stock" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
 
-        <button type="submit" class="min-w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
             Add Product
         </button>
     </form>
-
-    <br>
-    <a href="{{ route('products.index') }}">Back to Products</a>
 </div>
 @endsection

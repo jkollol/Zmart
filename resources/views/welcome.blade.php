@@ -10,28 +10,29 @@
     <!-- Navbar -->
     <header class="bg-white shadow fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-600">MyShop</h1>
+            <h1 class="text-2xl font-bold text-green-600">MyShop</h1>
             <nav class="space-x-4">
-                <a href="#features" class="text-gray-700 hover:text-blue-600">Features</a>
-                <a href="#products" class="text-gray-700 hover:text-blue-600">Products</a>
-                <a href="#testimonials" class="text-gray-700 hover:text-blue-600">Reviews</a>
-                <a href="#cta" class="text-gray-700 hover:text-blue-600">Join</a>
-                <a href="/login" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</a>
+                <a href="#features" class="text-gray-700 hover:text-green-600">Features</a>
+                <a href="/menu" class="text-gray-700 hover:text-green-600">Menu</a>
+                <a href="/products" class="text-gray-700 hover:text-green-600">Products</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-green-600">Reviews</a>
+                <a href="#cta" class="text-gray-700 hover:text-green-600">Join</a>
+                <a href="/login" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero  -->
-    <section class="pt-28 pb-20 bg-blue-50">
+    <section class="pt-28 pb-20 bg-green-50">
         <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
             <div class="text-center md:text-left">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-4">
                     Everything You Need<br>Delivered Fast.
                 </h2>
                 <p class="text-lg text-gray-600 mb-6">Find the best products at unbeatable prices. Your one-stop online shop.</p>
-                <a href="/products" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">Shop Now</a>
+                <a href="/products" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-700 transition">Shop Now</a>
             </div>
-            <img src="https://source.unsplash.com/600x400/?ecommerce,store" alt="Shopping" class="rounded-lg shadow-lg w-full md:w-1/2">
+            <img src="https://img.icons8.com/fluency/48/fast-cart.png" alt="Shopping" class="rounded-lg shadow-lg w-20 md:w-1/2">
         </div>
     </section>
 
@@ -70,8 +71,8 @@
                         <div class="p-4">
                             <h4 class="text-lg font-semibold">Product {{ $i }}</h4>
                             <p class="text-sm text-gray-600 mt-1">High-quality item with great value.</p>
-                            <p class="mt-2 text-blue-600 font-bold">$ {{ 10 * $i }}.00</p>
-                            <a href="/login" class="mt-3 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Buy Now</a>
+                            <p class="mt-2 text-green-600 font-bold">$ {{ 10 * $i }}.00</p>
+                            <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
                         </div>
                     </div>
                 @endfor
@@ -86,25 +87,25 @@
             <div class="grid md:grid-cols-3 gap-6 text-left">
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“Fast delivery and excellent customer service. I’ll shop again!”</p>
-                    <p class="mt-4 font-semibold text-blue-600">– Ayesha K.</p>
+                    <p class="mt-4 font-semibold text-green-600">– Ayesha K.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“The best prices online and product quality is top notch!”</p>
-                    <p class="mt-4 font-semibold text-blue-600">– Rahim U.</p>
+                    <p class="mt-4 font-semibold text-green-600">– Rahim U.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded shadow">
                     <p>“Got my order in 2 days. I was surprised at how smooth it was.”</p>
-                    <p class="mt-4 font-semibold text-blue-600">– Tanvir A.</p>
+                    <p class="mt-4 font-semibold text-green-600">– Tanvir A.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section id="cta" class="py-20 bg-blue-600 text-white text-center">
+    <section id="cta" class="py-20 bg-green-600 text-white text-center">
         <h3 class="text-3xl font-bold mb-4">Ready to Shop?</h3>
         <p class="mb-6 text-lg">Create an account and start exploring amazing deals today.</p>
-        <a href="/register" class="bg-white text-blue-600 font-bold px-6 py-3 rounded hover:bg-gray-100">Join Now</a>
+        <a href="/register" class="bg-white text-green-600 font-bold px-6 py-3 rounded hover:bg-gray-100">Join Now</a>
     </section>
 
     <!-- Footer -->

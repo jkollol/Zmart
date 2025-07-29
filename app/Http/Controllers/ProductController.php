@@ -9,10 +9,12 @@ class ProductController extends Controller
 {
 
 
-public function index() {
+public function index()
+{
     $products = Product::all();
     return view('products.index', compact('products'));
 }
+
 
 public function create() {
     return view('products.create');
@@ -48,5 +50,10 @@ public function destroy(Product $product) {
     $product->delete();
     return redirect()->route('products.index')->with('success', 'Product deleted!');
 }
+
+public function bkroy() {
+    return view('products.bkroy');
+}
+
 
 }

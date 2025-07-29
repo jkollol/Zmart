@@ -1,11 +1,12 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
-<div class="max-w-5xl mx-auto py-10 px-4">
+<div class="bg-green-100">
+    <div class="max-w-5xl  mx-auto py-10 px-4">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-800">All Products</h1>
         <a href="{{ route('products.create') }}"
-           class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+           class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
             + Add Product
         </a>
     </div>
@@ -34,7 +35,7 @@
                         <td class="px-6 py-4">{{ $product->stock }}</td>
                         <td class="px-6 py-4 text-right">
                             <a href="{{ route('products.edit', $product) }}"
-                               class="text-blue-500 hover:underline mr-4">Edit</a>
+                               class="text-green-500 hover:underline mr-4">Edit</a>
                             <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline-block">
                                 @csrf @method('DELETE')
                                 <button type="submit"
@@ -47,5 +48,6 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
 @endsection

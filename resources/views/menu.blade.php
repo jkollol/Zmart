@@ -6,9 +6,9 @@
 
 <section id="products" class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
-        <h3 class="text-3xl font-bold text-center mb-10">Find Your Desired Things..</h3>
+        <h3 class="text-3xl text-green-900 font-bold text-center mb-10">Find Your Desired Things..</h3>
 
-        <div class="max-w-xl mx-auto px-4 mt-10 mb-6">
+        <div class="max-w-7xl text-center mx-auto my-6">
             <input
                 type="text"
                 id="live-search"
@@ -29,11 +29,11 @@
             </div>
             @empty
             <!-- Only show this if there are no products at all -->
-            <p class="min-h-screen text-center  text-gray-500">No products available.</p>
+            <p class="min-h-screen text-center col-span-4 text-gray-500">No products available.</p>
             @endforelse
 
             <!-- This message is always rendered, used for JS-based search filtering -->
-            <p id="no-results" class="min-h-screen text-center mx-auto text-gray-500" style="display: none;">
+            <p id="no-results" class="min-h-screen text-center col-span-4 text-gray-500" style="display: none;">
                 No products found.
             </p>
         </div>
@@ -50,7 +50,6 @@
         const query = this.value.toLowerCase().trim();
         let visibleCount = 0;
 
-        
         productCards.forEach(card => {
             const name = card.dataset.name;
             const description = card.dataset.description;
