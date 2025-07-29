@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+//njn
 
 Route::get('/', function () {
     return view('layouts.app'); // will load resources/views/app.blade.php
