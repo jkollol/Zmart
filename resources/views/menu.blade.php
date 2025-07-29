@@ -24,7 +24,10 @@
                     <h4 class="text-lg font-semibold">{{ $product->name }}</h4>
                     <p class="text-sm text-gray-600 mt-1">{{ $product->description }}</p>
                     <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
-                    <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
+                    <div class="flex justify-between">
+                        <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
+                    <a href="/" class="mt-3 inline-block bg-lime-600 text-white px-4 py-2 rounded hover:bg-lime-700">View Details</a>
+                    </div>
                 </div>
             </div>
             @empty
