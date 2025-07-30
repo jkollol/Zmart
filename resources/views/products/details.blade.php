@@ -13,7 +13,12 @@
 
             <div class="flex justify-between">
                 <a href="/menu" class="text-green-700 hover:underline">← Back to Menu</a>
-                <a href="/login" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add to Cart</a>
+                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                        Add to Cart
+                    </button>
+                </form>
             </div>
 
         </div>

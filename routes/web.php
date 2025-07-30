@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
+
 
 
 
@@ -29,6 +31,8 @@ Route::get('/details/{id}', [ProductController::class, 'show'])->name('product.d
 Route::get('/bkroy', [ProductController::class, 'bkroy'])->name('products.bkroy');
 Route::post('/bkroy', [ProductController::class, 'store'])->name('products.store');
 
+Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
 
 
 Route::middleware('auth')->group(function () {
