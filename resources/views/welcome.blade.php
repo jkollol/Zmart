@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>MyShop - Home</title>
     @vite('resources/css/app.css')
 </head>
+
 <body class="bg-white text-gray-800 font-sans">
 
     <!-- Navbar -->
@@ -23,16 +25,21 @@
     </header>
 
     <!-- Hero  -->
-    <section class="pt-28 pb-20 bg-green-50">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-10">
-            <div class="text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-4">
-                    Everything You Need<br>Delivered Fast.
-                </h2>
-                <p class="text-lg text-gray-600 mb-6">Find the best products at unbeatable prices. Your one-stop online shop.</p>
-                <a href="/products" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-700 transition">Shop Now</a>
-            </div>
-            <img src="https://img.icons8.com/fluency/48/fast-cart.png" alt="Shopping" class="rounded-lg shadow-lg w-20 md:w-1/2">
+    <section class="pt-24 pb-16 bg-green-50 text-center">
+        <div class="mt-10">
+            <img src="{{ asset('images/zmart.png') }}" alt="MyShop Logo" class="mx-auto w-48 max-w-full object-contain rounded-lg" />
+        </div>
+        <div class="max-w-3xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6">
+                Everything You Need<br>Delivered Fast.
+            </h1>
+            <p class="text-lg text-gray-700 mb-8">
+                Find the best products at unbeatable prices. Your one-stop online shop.
+            </p>
+            <a href="/products" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
+                Shop Now
+            </a>
+
         </div>
     </section>
 
@@ -65,17 +72,26 @@
         <div class="max-w-7xl mx-auto px-4">
             <h3 class="text-3xl font-bold text-center mb-10">Top Picks For You</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                @for ($i = 1; $i <= 4; $i++)
-                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-                        <img src="https://source.unsplash.com/300x200/?product,{{ $i }}" class="w-full rounded-t" />
-                        <div class="p-4">
-                            <h4 class="text-lg font-semibold">Product {{ $i }}</h4>
-                            <p class="text-sm text-gray-600 mt-1">High-quality item with great value.</p>
-                            <p class="mt-2 text-green-600 font-bold">$ {{ 10 * $i }}.00</p>
+                @forelse ($products as $product)
+                <div class="product-card bg-white rounded-lg shadow hover:shadow-lg transition" data-name="{{ strtolower($product->name) }}" data-description="{{ strtolower($product->description) }}">
+                    <img src="{{ $product->image_url ?? 'https://source.unsplash.com/300x200/?product' }}" alt="{{ $product->name }}" class="w-full rounded-t" />
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold">{{ $product->name }}</h4>
+                        <p class="h-12 text-sm text-gray-600 mt-1">{{ $product->description }}</p>
+                        <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
+                        <div class="flex justify-between">
                             <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
+                            <a href="{{ route('product.details', $product->id) }}"
+                                class="mt-3 inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                                View Details
+                            </a>
                         </div>
                     </div>
-                @endfor
+                </div>
+                @empty
+                <!-- Only show this if there are no products at all -->
+                <p class="min-h-screen text-center col-span-4 text-gray-500">No products available.</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -117,4 +133,5 @@
 
     @vite('resources/js/app.js')
 </body>
+
 </html>

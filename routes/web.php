@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 
 
 
+
 Route::get('/', [WelcomeController::class, 'index']);
 
 
@@ -22,6 +23,9 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 
 Route::resource('products', controller: ProductController::class);
+Route::get('/details/{id}', [ProductController::class, 'show'])->name('product.details');
+
+
 Route::get('/bkroy', [ProductController::class, 'bkroy'])->name('products.bkroy');
 Route::post('/bkroy', [ProductController::class, 'store'])->name('products.store');
 

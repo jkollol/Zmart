@@ -51,6 +51,12 @@ public function destroy(Product $product) {
     return redirect()->route('products.index')->with('success', 'Product deleted!');
 }
 
+public function show($id)
+    {
+        $product = Product::findOrFail($id); // Returns 404 if not found
+        return view('products.details', compact('product'));
+    }
+
 public function bkroy() {
     return view('products.bkroy');
 }

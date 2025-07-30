@@ -8,7 +8,8 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        // Get the latest 4 products (ordered by created_at descending)
+        $products = Product::latest()->take(4)->get();
         return view('welcome', compact('products'));
     }
 }
