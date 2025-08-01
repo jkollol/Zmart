@@ -18,7 +18,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
+    @include('layouts.navbar')
 
         <!-- Page Heading -->
         @isset($header)
@@ -31,7 +31,7 @@
 
         <!-- Page Content -->
         <!-- Page Content -->
-        <main>
+        <main class="mt-16">
             @yield('content')
         </main>
 

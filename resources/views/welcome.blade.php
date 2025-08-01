@@ -10,7 +10,7 @@
 <body class="bg-white text-gray-800 font-sans">
 
     <!-- Navbar -->
-    <header class="bg-white shadow fixed top-0 w-full z-50">
+    <!-- <header class="bg-white shadow fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-green-600">MyShop</h1>
             <nav class="space-x-4">
@@ -22,7 +22,8 @@
                 <a href="/login" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Login</a>
             </nav>
         </div>
-    </header>
+    </header> -->
+    @include('layouts.navbar')
 
     <!-- Hero  -->
     <section class="pt-24 pb-16 bg-green-50 text-center">
