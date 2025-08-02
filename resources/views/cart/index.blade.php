@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto py-12 px-4">
+<div class="bg-green-100">
+    <div class="max-w-4xl min-h-screen  mx-auto py-12 px-4">
     <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
 
     @if(session('success'))
@@ -34,5 +35,6 @@
 
     </div>
     @endif
+</div>
 </div>
 @endsection
