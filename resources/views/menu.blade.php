@@ -25,9 +25,13 @@
                     <p class="text-sm text-gray-600 mt-1">{{ $product->description }}</p>
                     <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
                     <div class="flex justify-between">
-                        <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
-                        <a href="{{ route('product.details', $product->id) }}"
-                            class="mt-3 inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                Buy Now
+                            </button>
+                        </form> <a href="{{ route('product.details', $product->id) }}"
+                            class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                             View Details
                         </a>
                     </div>
