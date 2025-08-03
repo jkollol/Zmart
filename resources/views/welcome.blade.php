@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MyShop - Home</title>
+    <title>ZMART - Home</title>
     @vite('resources/css/app.css')
 </head>
 
@@ -128,7 +128,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>© {{ date('Y') }} MyShop. Built with ❤️ by Jakaria Kollol</p>
+            <p>© {{ date('Y') }} ZMART. Built with ❤️ by Jakaria Kollol</p>
         </div>
     </footer>
 

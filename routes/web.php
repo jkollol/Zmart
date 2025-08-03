@@ -9,6 +9,12 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\StripePaymentController;
+
+Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');
+Route::get('/payment-success', [StripePaymentController::class, 'success'])->name('payment.success');
+Route::get('/payment-cancel', [StripePaymentController::class, 'cancel'])->name('payment.cancel');
+
 
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
 Route::get('/checkout/success', [StripeController::class, 'success'])->name('checkout.success');

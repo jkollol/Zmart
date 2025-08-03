@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Edit Product</h1>
-
+<div class="bg-green-100 min-x-screen min-h-screen">
+    <div class="container mx-auto py-10">
+        <h1 class="text-center font-extrabold text-3xl pt-10 text-green-800">Edit Product</h1>
     @if ($errors->any())
         <div style="color:red;">
             <ul>
@@ -14,29 +14,39 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('products.update', $product->id) }}">
+    <form action="{{ route('products.store') }}" method="POST" class="max-w-3xl mx-auto space-y-4">
         @csrf
-        @method('PUT')
         <div>
-            <label>Name:</label><br>
-            <input type="text" name="name" value="{{ old('name', $product->name) }}" required>
+            <label class="block text-sm font-medium">Product Name</label>
+            <input type="text" name="name" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
-        <div>
-            <label>Description:</label><br>
-            <textarea name="description">{{ old('description', $product->description) }}</textarea>
-        </div>
-        <div>
-            <label>Price:</label><br>
-            <input type="number" step="0.01" name="price" value="{{ old('price', $product->price) }}" required>
-        </div>
-        <div>
-            <label>Stock:</label><br>
-            <input type="number" name="stock" value="{{ old('stock', $product->stock) }}" required>
-        </div>
-        <button type="submit">Update Product</button>
-    </form>
 
+        <div>
+            <label class="block text-sm font-medium">Description</label>
+            <textarea name="description" class="w-full border border-gray-300 p-2 rounded" rows="4"></textarea>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium">Price ($)</label>
+            <input type="number" step="0.01" name="price" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium">Image URL</label>
+            <input type="text" name="image_url" class="w-full border border-gray-300 p-2 rounded">
+        </div>
+
+        <div>
+            <label class=" block text-sm font-medium">Stock</label>
+            <input type="number" name="stock" class="w-full border border-gray-300 p-2 rounded" required>
+        </div>
+
+        <button type="submit" class="min-w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            Update Product
+        </button>
+        <a class="my-6 text-green-600 text-center hover:underline" href="{{ route('products.index') }}"><< Back to Products</a>
+    </form>
     <br>
-    <a href="{{ route('products.index') }}">Back to Products</a>
+</div>
 </div>
 @endsection

@@ -2,13 +2,11 @@
 <nav class="bg-white shadow fixed top-0 w-full z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <!-- Logo -->
-        <a href="/" class="text-2xl font-bold text-green-600">MyShop</a>
+        <a href="/" class="text-2xl font-bold text-green-600">ZMART</a>
 
         <!-- Navigation Links -->
         <div class="space-x-4 flex items-center">
-            <a href="#features" class="text-gray-700 hover:text-green-600">Features</a>
             <a href="/menu" class="text-gray-700 hover:text-green-600">Menu</a>
-            <a href="/products" class="text-gray-700 hover:text-green-600">Products</a>
             <a href="#testimonials" class="text-gray-700 hover:text-green-600">Reviews</a>
 
             @auth
@@ -34,6 +32,8 @@
     >
         <a href="{{ route('profile.edit') }}"
            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+        <a href="{{ route('products.index') }}"
+           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Products</a>
         <a href="{{ route('cart.index') }}"
            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cart</a>
         <form method="POST" action="{{ route('logout') }}">

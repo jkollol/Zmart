@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-green-100">
+<div class="bg-green-100 min-x-screen min-h-screen">
     <div class="max-w-4xl mx-auto py-12 px-4">
         <div class="bg-white rounded shadow p-6">
             <img src="{{ $product->image_url ?? 'https://source.unsplash.com/400x300/?product' }}"
