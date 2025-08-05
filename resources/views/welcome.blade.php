@@ -71,7 +71,7 @@
     <!-- Products -->
     <section id="products" class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-10">Top Picks For You</h3>
+            <h3 class="text-3xl font-bold text-center mb-10">Explore Our Newest Arrivals!</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @forelse ($products as $product)
                 <div class="product-card bg-white rounded-lg shadow hover:shadow-lg transition" data-name="{{ strtolower($product->name) }}" data-description="{{ strtolower($product->description) }}">
@@ -98,25 +98,41 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-10">What Our Customers Say</h3>
-            <div class="grid md:grid-cols-3 gap-6 text-left">
+    <!-- Your Products section (already present) -->
+
+<!-- Testimonials section -->
+<section id="testimonials" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-10">What Our Customers Say</h3>
+
+        @if($reviews->isEmpty())
+            <p class="text-gray-600">No reviews available yet.</p>
+        @else
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+            @foreach($reviews as $review)
                 <div class="bg-gray-50 p-6 rounded shadow">
-                    <p>“Fast delivery and excellent customer service. I’ll shop again!”</p>
-                    <p class="mt-4 font-semibold text-green-600">– Ayesha K.</p>
+                    <div class="flex items-center mb-2">
+                        <div class="text-yellow-500 text-sm">
+                            {!! str_repeat('★', $review->rating) !!}
+                            {!! str_repeat('☆', 5 - $review->rating) !!}
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">“{{ $review->comment ?? 'No comment provided.' }}”</p>
+                    <p class="mt-4 font-semibold text-green-600">– {{ $review->customer->name ?? 'Anonymous' }}</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded shadow">
-                    <p>“The best prices online and product quality is top notch!”</p>
-                    <p class="mt-4 font-semibold text-green-600">– Rahim U.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded shadow">
-                    <p>“Got my order in 2 days. I was surprised at how smooth it was.”</p>
-                    <p class="mt-4 font-semibold text-green-600">– Tanvir A.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
-    </section>
+
+        <div class="mt-8">
+            <a href="{{ url('/reviews') }}" class="text-green-700 font-semibold hover:underline">
+                See All Reviews →
+            </a>
+        </div>
+        @endif
+    </div>
+</section>
+
+
 
     <!-- Call to Action -->
     <section id="cta" class="py-20 bg-green-600 text-white text-center">
