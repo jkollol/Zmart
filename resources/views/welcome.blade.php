@@ -37,7 +37,7 @@
             <p class="text-lg text-gray-700 mb-8">
                 Find the best products at unbeatable prices. Your one-stop online shop.
             </p>
-            <a href="/products" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
+            <a href="/menu" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
                 Shop Now
             </a>
 

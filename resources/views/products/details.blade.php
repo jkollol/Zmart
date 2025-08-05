@@ -13,12 +13,45 @@
 
             <div class="flex justify-between">
                 <a href="/menu" class="text-green-700 hover:underline">← Back to Menu</a>
-                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                @auth
+                        @if($product->posted_by !== auth()->id())
+                        <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                Add to Cart
+                            </button>
+                        </form>
+                        @else
+                        <form onsubmit="return showOwnerAlert(event)">
+                            <button type="submit" class="inline-block bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed">
+                               Add to Cart
+                            </button>
+                        </form>
+
+                        {{-- SweetAlert2 CDN --}}
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                        <script>
+                            function showOwnerAlert(e) {
+                                e.preventDefault();
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops!',
+                                    text: 'You cannot buy your own product.',
+                                    confirmButtonColor: '#6b7280' // Tailwind's gray-500
+                                });
+                                return false;
+                            }
+                        </script>
+                        @endif
+                        @endauth
+
+                <!-- <form action="{{ route('cart.add', $product->id) }}" method="POST">
                     @csrf
                     <button type="submit" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                         Add to Cart
                     </button>
-                </form>
+                </form> -->
             </div>
 
         </div>

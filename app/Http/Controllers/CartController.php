@@ -21,28 +21,61 @@ class CartController extends Controller
 
 
     // Add product to cart
-    public function addToCart(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
+    public function addToCart(Request $request, $productId)
+{
+    
+    $product = Product::findOrFail($productId);
 
-        // Check if product already exists in user's cart
-        $existing = Cart::where('user_id', Auth::id())
-            ->where('product_id', $product->id)
-            ->first();
-
-        if ($existing) {
-            // If already in cart, increase quantity
-            $existing->increment('quantity');
-        } else {
-            // If not, create new cart item
-            Cart::create([
-                'user_id' => Auth::id(),
-                'product_id' => $product->id,
-                'quantity' => 1,
-            ]);
-        }
-
-        // Redirect to cart page with success message
-        return redirect()->route('cart.index')->with('success', 'Product added to cart!');
+    // Prevent user from adding their own product
+    if ($product->posted_by == Auth::id()) {
+        return back()->with('error', 'You cannot buy your own product.');
     }
+
+    // Check if product is already in cart for this user
+    $cartItem = Cart::where('user_id', Auth::id())
+                    ->where('product_id', $product->id)
+                    ->first();
+
+    if ($cartItem) {
+        // If found, increment quantity
+        $cartItem->quantity += 1;
+        $cartItem->save();
+    } else {
+        // If not found, create new cart item
+        Cart::create([
+            'user_id'    => Auth::id(),
+            'product_id' => $product->id,
+            'posted_by'  => $product->posted_by, // seller id
+            'quantity'   => 1,
+            'status'     => 'pending',
+        ]);
+    }
+
+return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+}
+
+
+    public function orderList()
+{
+    // Get all cart items where the product's posted_by = current user
+    $orders = Cart::with(['product', 'buyer'])
+        ->where('posted_by', Auth::id())
+        ->get();
+
+    return view('orders.index', compact('orders'));
+}
+public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:pending,shipped,delivered,cancel',
+    ]);
+
+    $cart = Cart::findOrFail($id);
+    $cart->status = $request->status;
+    $cart->save();
+
+    return redirect()->back()->with('success', 'Order status updated successfully!');
+}
+
+
 }

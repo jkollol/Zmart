@@ -12,7 +12,7 @@ protected $fillable = [
     'price',
     'image_url',
     'stock',
-    'user_id', // ✅ make sure this is included
+    'posted_by', // ✅ make sure this is included
 ];
 
     public function cartItems()

@@ -1,6 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session('success'))
+<div class="bg-green-100 text-green-700 p-2 rounded mb-4">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="bg-red-100 text-red-700 p-2 rounded mb-4">
+    {{ session('error') }}
+</div>
+@endif
+{{-- Your menu page Blade --}}
+
+@guest
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    window.onload = function() {
+        Swal.fire({
+            icon: 'info',
+            title: 'Login Required',
+            text: 'Please login to purchase.',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            willClose: () => {
+                // Optional: you can do something when it closes
+            }
+        });
+    }
+</script>
+@endguest
+
 
 <!-- 🔍 Search Input Only (No Submit Button) -->
 
@@ -25,11 +57,40 @@
                     <p class="text-sm text-gray-600 mt-1">{{ $product->description }}</p>
                     <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
                     <div class="flex justify-between">
+                        @auth
+                        @if($product->posted_by !== auth()->id())
                         <form action="{{ route('cart.add', $product->id) }}" method="POST">
                             @csrf
-                            <a href="{{ route('checkout') }}">
-                            <button type="button" class="btn btn-primary">Buy Now</button></a>
+                            <button type="submit" class="mt-3 inline-block bg-lime-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                Buy Now
+                            </button>
                         </form>
+                        @else
+                        <form onsubmit="return showOwnerAlert(event)">
+                            <button type="submit" class="mt-3 inline-block bg-gray-400 text-white px-4 py-2 rounded cursor-not-allowed">
+                                Buy Now
+                            </button>
+                        </form>
+
+                        {{-- SweetAlert2 CDN --}}
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                        <script>
+                            function showOwnerAlert(e) {
+                                e.preventDefault();
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops!',
+                                    text: 'You cannot buy your own product.',
+                                    confirmButtonColor: '#6b7280' // Tailwind's gray-500
+                                });
+                                return false;
+                            }
+                        </script>
+                        @endif
+                        @endauth
+
+
                         <a href="{{ route('product.details', $product->id) }}"
                             class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
                             View Details
