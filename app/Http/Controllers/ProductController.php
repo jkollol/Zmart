@@ -74,6 +74,10 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         return view('products.details', compact('product'));
+        $product = Product::with('reviews.customer')->findOrFail($id);
+
+return view('product.show', compact('product'));
+
     }
 
     // Any additional method you want (e.g. bkroy page)

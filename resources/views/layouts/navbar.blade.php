@@ -7,7 +7,7 @@
         <!-- Navigation Links -->
         <div class="space-x-4 flex items-center">
             <a href="/menu" class="text-gray-700 hover:text-green-600">Menu</a>
-            <a href="#testimonials" class="text-gray-700 hover:text-green-600">Reviews</a>
+            <a href="/reviews" class="text-gray-700 hover:text-green-600">Reviews</a>
 
             @auth
             <!-- Avatar Dropdown: Opens on hover, closes on click outside -->

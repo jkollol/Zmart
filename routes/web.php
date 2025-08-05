@@ -10,6 +10,8 @@ use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\ReviewController;
+
 
 Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');
 Route::get('/payment-success', [StripePaymentController::class, 'success'])->name('payment.success');
@@ -21,6 +23,8 @@ Route::get('/checkout/success', [StripeController::class, 'success'])->name('che
 Route::get('/checkout/cancel', [StripeController::class, 'cancel'])->name('checkout.cancel');
 
 
+Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth')->name('profile.show');
+Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->middleware('auth')->name('profile.updatePassword');
 
 
 
@@ -58,6 +62,13 @@ Route::put('/cart/{id}/status', [CartController::class, 'updateStatus'])
     ->middleware('auth')
     ->name('cart.updateStatus');
 
+
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
+Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
+    ->middleware('auth')
+    ->name('reviews.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

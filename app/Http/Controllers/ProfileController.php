@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -8,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class ProfileController extends Controller
 {
@@ -57,4 +61,29 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+
+
+    public function show()
+    {
+        return view('profile');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'new_password' => ['required', 'string', 'min:8', 'confirmed']
+        ]);
+
+      /** @var \App\Models\User $user */
+$user = Auth::user();
+$user->update([
+    'password' => Hash::make($request->new_password),
+]);
+
+
+
+        return redirect()->back()->with('success', 'Password updated successfully.');
+    }
 }
+
