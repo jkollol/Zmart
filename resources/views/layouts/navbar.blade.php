@@ -32,7 +32,7 @@
                     <a href="{{ route('profile.edit') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
                     <a href="{{ route('products.index') }}"
-                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Products</a>
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Products</a>
                     <a href="{{ route('cart.index') }}"
                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cart</a>
                     <a href="{{ route('orders.index') }}"

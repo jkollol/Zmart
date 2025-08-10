@@ -53,8 +53,8 @@
             <div class="product-card bg-green-100 rounded-lg shadow hover:shadow-lg transition" data-name="{{ strtolower($product->name) }}" data-description="{{ strtolower($product->description) }}">
                 <img src="{{ $product->image_url ?? 'https://source.unsplash.com/300x200/?product' }}" alt="{{ $product->name }}" class="w-full rounded-t" />
                 <div class="p-4">
-                    <h4 class="text-lg font-semibold">{{ $product->name }}</h4>
-                    <p class="text-sm text-gray-600 mt-1">{{ $product->description }}</p>
+                    <h4 class="h-12 text-lg font-semibold">{{ $product->name }}</h4>
+                    <p class="text-sm text-gray-600 mt-1 h-20">{{ $product->description }}</p>
                     <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
                     <div class="flex justify-between">
                         @auth

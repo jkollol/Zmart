@@ -75,10 +75,10 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @forelse ($products as $product)
                 <div class="product-card bg-white rounded-lg shadow hover:shadow-lg transition" data-name="{{ strtolower($product->name) }}" data-description="{{ strtolower($product->description) }}">
-                    <img src="{{ $product->image_url ?? 'https://source.unsplash.com/300x200/?product' }}" alt="{{ $product->name }}" class="w-full rounded-t" />
+                    <img src="{{ $product->image_url ?? 'https://source.unsplash.com/300x200/?product' }}" alt="{{ $product->name }}" class="w-full rounded-t h-96" />
                     <div class="p-4">
-                        <h4 class="text-lg font-semibold">{{ $product->name }}</h4>
-                        <p class="h-12 text-sm text-gray-600 mt-1">{{ $product->description }}</p>
+                        <h4 class="h-12 text-lg font-semibold">{{ $product->name }}</h4>
+                        <p class="h-20 text-sm text-gray-600 mt-1">{{ $product->description }}</p>
                         <p class="mt-2 text-green-600 font-bold">${{ number_format($product->price, 2) }}</p>
                         <div class="flex justify-between">
                             <a href="/login" class="mt-3 inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Buy Now</a>
