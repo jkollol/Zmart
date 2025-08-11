@@ -41,6 +41,7 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 Route::resource('products', controller: ProductController::class);
 Route::get('/details/{id}', [ProductController::class, 'show'])->name('product.details');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
 
 Route::get('/bkroy', [ProductController::class, 'bkroy'])->name('products.bkroy');
@@ -61,7 +62,6 @@ Route::get('/orders', [CartController::class, 'orderList'])
 Route::put('/cart/{id}/status', [CartController::class, 'updateStatus'])
     ->middleware('auth')
     ->name('cart.updateStatus');
-
 
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
