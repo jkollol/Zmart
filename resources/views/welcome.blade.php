@@ -26,6 +26,7 @@
     @include('layouts.navbar')
 
     <!-- Hero  -->
+
     <section class="pt-24 pb-16 bg-green-50 text-center">
         <div class="mt-10">
             <img src="{{ asset('images/zmart.png') }}" alt="MyShop Logo" class="mx-auto w-48 max-w-full object-contain rounded-lg" />
