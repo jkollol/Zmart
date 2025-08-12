@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Cart;
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
@@ -44,10 +45,15 @@ $cartItems = Auth::user()->cart->load('product');
 
         return redirect($session->url);
     }
-
+private function updateCartStatus($userId, $fromStatus = 'to-pay', $toStatus = 'pending')
+    {
+        Cart::where('user_id', $userId)
+            ->where('status', $fromStatus)
+            ->update(['status' => $toStatus]);
+    }
     public function success()
 {
-    Auth::user()->cart->each->delete();
+    $this->updateCartStatus(Auth::id());
 
     return redirect()->route('cart.index')->with('success', 'Payment successful! Your order has been placed.');
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\MenuController;
 
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\StripePaymentController;
@@ -55,6 +56,7 @@ Route::get('/cart', [CartController::class, 'index'])
     ->middleware('auth')
     ->name('cart.index');
 
+Route::post('/cart/cod', [CartController::class, 'cashOnDelivery'])->name('cart.cod');
 Route::get('/orders', [CartController::class, 'orderList'])
     ->middleware('auth')
     ->name('orders.index');
@@ -62,6 +64,8 @@ Route::get('/orders', [CartController::class, 'orderList'])
 Route::put('/cart/{id}/status', [CartController::class, 'updateStatus'])
     ->middleware('auth')
     ->name('cart.updateStatus');
+Route::post('/cart/{id}/increment', [CartController::class, 'incrementQuantity'])->name('cart.increment');
+Route::post('/cart/{id}/decrement', [CartController::class, 'decrementQuantity'])->name('cart.decrement');
 
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');

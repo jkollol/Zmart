@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
 
             // Status with default 'pending'
-            $table->string('status')->default('pending');
+            $table->string('status')->default('to-pay');
 
             $table->timestamps();
         });

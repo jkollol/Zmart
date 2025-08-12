@@ -61,7 +61,7 @@
                         @if($product->posted_by !== auth()->id())
                         <form action="{{ route('cart.add', $product->id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="mt-3 inline-block bg-lime-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                            <button type="submit" class="mt-3 inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">
                                 Buy Now
                             </button>
                         </form>

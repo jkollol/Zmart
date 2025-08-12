@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
@@ -8,6 +11,7 @@ use Stripe\Checkout\Session;
 
 class StripePaymentController extends Controller
 {
+
     public function checkout()
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -31,11 +35,17 @@ class StripePaymentController extends Controller
 
         return redirect($session->url);
     }
+   public function success()
+{
+    // Use same update logic
+    Cart::where('user_id', Auth::id())
+        ->where('status', 'to-pay')
+        ->update(['status' => 'pending']);
 
-    public function success()
-    {
-        return 'Payment successful! Thank you.';
-    }
+    return redirect()->route('cart.index')
+        ->with('success', 'Payment successful! Your order is confirmed.');
+}
+
 
     public function cancel()
     {

@@ -12,18 +12,30 @@ class CartController extends Controller
     // Show cart items
     public function index()
 {
-    $cartItems = Cart::with('product')
-        ->where('user_id', Auth::id())
+    $userId = Auth::id();
+
+    // Items waiting for payment
+    $cartItemsToPay = Cart::with('product')
+        ->where('user_id', $userId)
+        ->where('status', 'to-pay')
         ->get();
 
-    return view('cart.index', compact('cartItems'));
+    // Order history - items with status other than 'to-pay', latest first
+    $orderHistory = Cart::with('product')
+        ->where('user_id', $userId)
+        ->where('status', '!=', 'to-pay')
+        ->orderBy('created_at', 'desc')  // <-- order latest first
+        ->get();
+
+    return view('cart.index', compact('cartItemsToPay', 'orderHistory'));
 }
 
 
+
+
     // Add product to cart
-    public function addToCart(Request $request, $productId)
+   public function addToCart(Request $request, $productId)
 {
-    
     $product = Product::findOrFail($productId);
 
     // Prevent user from adding their own product
@@ -31,43 +43,83 @@ class CartController extends Controller
         return back()->with('error', 'You cannot buy your own product.');
     }
 
-    // Check if product is already in cart for this user
+    // Find a cart item with the product for this user **with status 'to-pay' only**
     $cartItem = Cart::where('user_id', Auth::id())
                     ->where('product_id', $product->id)
+                    ->where('status', 'to-pay')  // <-- important filter here
                     ->first();
 
     if ($cartItem) {
-        // If found, increment quantity
+        // If found with 'to-pay' status, increment quantity
         $cartItem->quantity += 1;
         $cartItem->save();
     } else {
-        // If not found, create new cart item
+        // If no 'to-pay' item found, create a new cart item with 'to-pay' status
         Cart::create([
             'user_id'    => Auth::id(),
             'product_id' => $product->id,
-            'posted_by'  => $product->posted_by, // seller id
+            'posted_by'  => $product->posted_by,
             'quantity'   => 1,
-            'status'     => 'pending',
+            'status'     => 'to-pay',
         ]);
     }
 
-return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+    return redirect()->route('cart.index')->with('success', 'Product added to cart.');
+}
+
+private function updateCartStatus($userId, $fromStatus = 'to-pay', $toStatus = 'pending')
+    {
+        Cart::where('user_id', $userId)
+            ->where('status', $fromStatus)
+            ->update(['status' => $toStatus]);
+    }
+public function cashOnDelivery()
+{
+    $this->updateCartStatus(Auth::id());
+    return redirect()->route('cart.index')
+        ->with('success', 'Order placed with Cash on Delivery.');
+}
+public function incrementQuantity($id)
+{
+    $cartItem = Cart::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+    $cartItem->quantity += 1;
+    $cartItem->save();
+
+    return redirect()->back()->with('success', 'Quantity updated!');
+}
+
+public function decrementQuantity($id)
+{
+    $cartItem = Cart::where('id', $id)->where('user_id', Auth::id())->firstOrFail();
+
+    if ($cartItem->quantity > 1) {
+        $cartItem->quantity -= 1;
+        $cartItem->save();
+    } else {
+        // Optionally, remove item if quantity reaches zero
+        $cartItem->delete();
+    }
+
+    return redirect()->back()->with('success', 'Quantity updated!');
 }
 
 
     public function orderList()
 {
-    // Get all cart items where the product's posted_by = current user
+    // Get all cart items where the product's posted_by = current user, excluding 'to-pay'
     $orders = Cart::with(['product', 'buyer'])
         ->where('posted_by', Auth::id())
+        ->where('status', '!=', 'to-pay') // ✅ Exclude to-pay
+        ->orderBy('created_at', 'desc')
         ->get();
 
     return view('orders.index', compact('orders'));
 }
+
 public function updateStatus(Request $request, $id)
 {
     $request->validate([
-        'status' => 'required|in:pending,shipped,delivered,cancel',
+        'status' => 'required|in:pending,shipped,delivered,cancelled',
     ]);
 
     $cart = Cart::findOrFail($id);
