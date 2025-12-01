@@ -1,3 +1,5 @@
+![Image Alt](https://github.com/jkollol/Zmart/blob/52a9474b66fd30c77b52c98bd9a9c0cf07acc4f1/Untitled%20design.png)
+
 Zmart – Modern eCommerce Platform
 
 Overview
